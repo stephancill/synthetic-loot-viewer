@@ -144,6 +144,7 @@ class Dapp extends React.Component {
       const [address] = await window.ethereum.request({ method: 'eth_requestAccounts' })
       const currentUser = await this._userFromAddress(address)
       this.setState({currentUser})
+      this.props.history.push(`/account/${currentUser.address}`)
     } catch (error) {
       console.error(error)
     }
@@ -153,14 +154,9 @@ class Dapp extends React.Component {
   async _initialize(currentUser) {
     if (window.ethereum) {
       this._provider = new ethers.providers.Web3Provider(window.ethereum)
-      const chainId = await getChainId(this._provider)
-      // TODO: Add other L2 chain Ids (map L2 chain ID to L1 chain ID)
-      this._ensProvider = chainId === 69 ? ethers.getDefaultProvider("goerli") : this._provider // Only use other provider when on L2 
       this.setState({canConnectWallet: true})
     } else {
-      // TODO: User should probably select the network somewhere
-      this._provider = new ethers.providers.JsonRpcProvider("https://goerli.infura.io/v3/76f031d8c76c4d32b9b9eaca5240f4ec", "goerli") // L2
-      this._ensProvider = new ethers.providers.JsonRpcProvider("https://goerli.infura.io/v3/76f031d8c76c4d32b9b9eaca5240f4ec", "goerli") // L1
+      this._provider = new ethers.providers.JsonRpcProvider("https://mainnet.infura.io/v3/f29f1c340a60430ebff33f1ed9dad190", "homestead")
     }
 
     await this._loadContracts(this._provider)
