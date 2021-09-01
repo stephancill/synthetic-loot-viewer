@@ -1,0 +1,107 @@
+.headerUser {
+    margin-left: 20px;
+    max-width: var(--col-width);
+}
+
+.headerUser .userItem {
+    cursor: default;
+}
+
+.headerDetailContainer {
+    font-size: 12px;
+    color: var(--primary-grey);
+    margin-left: 40px;
+    margin-bottom: 20px;
+    margin-top: 4px;
+}
+
+.inviteButton {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    cursor: pointer;
+}
+
+.buttonContainer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: black; */
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    color: white;
+}
+
+.buttonContainer .spinner {
+    border-color: black !important;
+    border-left-color: rgba(0, 0, 0, 0) !important;
+}
+
+.sendInviteModal {
+    position: absolute;
+    width: var(--col-width);
+    height: 520px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #DADADA;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 10px;
+}
+
+.sendInviteModal .linkContainer {
+    padding-bottom: 12px;
+}
+
+.sendInviteModal .linkContainer input {
+    background-color: #C4C4C4;
+    border-radius: 5px;
+    border: none;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 80%;
+}
+
+.sendInviteModal .linkContainer button {
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    margin-left: 11px;
+}
+
+.sendInviteModal .linkContainer button:active {
+    color: blue;
+}
+
+.sendInviteModal .qrImage {
+    margin-top: 13px;
+    margin-left: -4px;
+    margin-right: -4px;
+    margin-bottom: 15px;
+}
+
+.sendInviteModal .inlineUser span {
+    max-width: 185px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sendInviteModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(91, 91, 91, 0.76);
+}

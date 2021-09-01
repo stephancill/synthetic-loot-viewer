@@ -1,0 +1,118 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap'); */
+
+:root {
+    --primary-grey: #858585;
+    --secondary-grey: #f0f0f0;
+    --col-width: 300px
+}
+
+body {
+    background-color: white;
+    margin: 0;
+	font-family: TimesNewRoman,Times New Roman,Times,Baskerville,Georgia,serif;     
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+}
+  
+
+nav {
+    display: flex;
+    height: 36px;
+    padding-top: 28px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-bottom: 28px;
+}
+
+
+nav .navLogo {
+    padding-top: 5px;
+    flex: 1;
+}
+
+nav .search {
+    flex: 1;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+nav .userItemContainer {
+    flex: 1;
+    display: flex;
+}
+
+nav .search input {
+    width: var(--col-width);
+    border-radius: 10px;
+    border: none;
+    padding-top: 8px;
+    padding-left: 8px;
+    padding-bottom: 8px;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    
+    background-color: var(--secondary-grey);
+}
+
+nav .search input::placeholder {
+    color: var(--primary-grey);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+nav .search input:focus {
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h2 {
+    color: var(--primary-grey);
+    font-weight: normal;
+}
+
+.friendsContainer {
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background-color: var(--secondary-grey);
+    border-radius: 10px;
+    width: var(--col-width);
+    padding-top: 1px;
+    padding-left: 20px;
+    padding-bottom: 16px;
+}
+
+.userList {
+    max-height: 600px;
+    overflow-y: scroll;
+}
+
+.actionButton {
+    flex: 1;
+    background-color: black;
+    height: 35px;
+    color: white;
+    border: none;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    /* font-family: Roboto; */
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.2s;
+}
+
+.actionButton:hover, .actionButton:hover .spinner {
+    transition: 0.2s;
+    scale: 1.1;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.actionButton:disabled {
+    background-color: grey;
+}
