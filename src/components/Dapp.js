@@ -156,7 +156,7 @@ class Dapp extends React.Component {
       this._provider = new ethers.providers.Web3Provider(window.ethereum)
       this.setState({canConnectWallet: true})
     } else {
-      this._provider = new ethers.providers.JsonRpcProvider("https://mainnet.infura.io/v3/f29f1c340a60430ebff33f1ed9dad190", "homestead")
+      this._provider = new ethers.providers.JsonRpcProvider("https://mainnet.infura.io/v3/f29f1c340a60430ebff33f1ed9dad190")
     }
 
     await this._loadContracts(this._provider)
