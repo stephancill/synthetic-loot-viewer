@@ -85,7 +85,12 @@ class Dapp extends React.Component {
 
                       <div className="card"  style={{backgroundColor: "white", marginTop: "15px"}}>
                         <img alt="character" style={{borderRadius: "5px", width: "100%"}} src={this.state.displayedUser.character}/>
-                        <img alt="loot" style={{borderRadius: "5px"}} src={this.state.displayedUser.lootImage}/>
+                        {/* <img alt="loot" style={{borderRadius: "5px"}} src={this.state.displayedUser.lootImage}/> */}
+                        <ul style={{marginLeft: "-20px"}}>
+                          {this.state.displayedUser.items.map(item => {
+                            return <li key={item}>{item}</li>
+                          })}
+                        </ul>
                       </div>
                     </> : 
                     this.state.isLoading ? <div style={{width: "20px", height: "20px"}} className="spinner"></div> :
@@ -299,6 +304,7 @@ class Dapp extends React.Component {
       address: address.toLowerCase(),
       lootImage: b64svg,
       character: img,
+      items,
       ens
     }
   }
