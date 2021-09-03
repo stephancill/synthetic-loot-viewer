@@ -58,51 +58,59 @@ class Dapp extends React.Component {
     }
 
     return (
-      <div className="App">
-        <Nav connectWallet={() => this._connectWallet()} 
-          isConnectingWallet={this.state.isConnectingWallet}
-          canConnectWallet={this.state.canConnectWallet}
-          currentUser={this.state.currentUser}
-          displayedUser={this.state.displayedUser}
-          searchQuery={this.state.searchQuery}
-          onSearchChange={this._onSearchChange}
-          onSearchSubmit={this._onSearch}
-          onSelectUser={this._onSelectUser} 
-        />
-          <Switch>
-            <Route path="/account/:addressOrENS" render={ (route) => {
-              return <div style={{display: "flex", justifyContent: "center"}}>
-                <div style={{marginTop: "50px", marginBottom: "50px"}}>
-                  {
-                    this.state.displayedUser ? <>
-                      <HeaderUser 
-                      user={this.state.displayedUser} 
-                      currentUser={this.state.currentUser} 
-                      provider={this._provider} 
-                      refreshUser={this._refreshDisplayedUser}
-                      refreshCurrentUser={this._refreshCurrentUser}
-                      />
+      <>
+        <div className="App">
+          <Nav connectWallet={() => this._connectWallet()} 
+            isConnectingWallet={this.state.isConnectingWallet}
+            canConnectWallet={this.state.canConnectWallet}
+            currentUser={this.state.currentUser}
+            displayedUser={this.state.displayedUser}
+            searchQuery={this.state.searchQuery}
+            onSearchChange={this._onSearchChange}
+            onSearchSubmit={this._onSearch}
+            onSelectUser={this._onSelectUser} 
+          />
+            <Switch>
+              <Route path="/account/:addressOrENS" render={ (route) => {
+                return <div style={{display: "flex", justifyContent: "center"}}>
+                  <div style={{marginTop: "50px", marginBottom: "50px"}}>
+                    {
+                      this.state.displayedUser ? <>
+                        <HeaderUser 
+                        user={this.state.displayedUser} 
+                        currentUser={this.state.currentUser} 
+                        provider={this._provider} 
+                        refreshUser={this._refreshDisplayedUser}
+                        refreshCurrentUser={this._refreshCurrentUser}
+                        />
 
-                      <div className="card"  style={{backgroundColor: "white", marginTop: "15px"}}>
-                        <img alt="character" style={{borderRadius: "5px", width: "100%"}} src={this.state.displayedUser.character}/>
-                        {/* <img alt="loot" style={{borderRadius: "5px"}} src={this.state.displayedUser.lootImage}/> */}
-                        <ul style={{marginLeft: "-20px"}}>
-                          {this.state.displayedUser.items.map(item => {
-                            return <li key={item}>{item}</li>
-                          })}
-                        </ul>
-                      </div>
-                    </> : 
-                    this.state.isLoading ? <div style={{width: "20px", height: "20px"}} className="spinner"></div> :
-                    this.state.userNotFound ? <>
-                      {route.match.params.addressOrENS} could not be found :/
-                    </> : <></>
-                  }
+                        <div className="card"  style={{backgroundColor: "white", marginTop: "15px"}}>
+                          <img alt="character" style={{borderRadius: "5px", width: "100%"}} src={this.state.displayedUser.character}/>
+                          {/* <img alt="loot" style={{borderRadius: "5px"}} src={this.state.displayedUser.lootImage}/> */}
+                          <ul style={{marginLeft: "-20px"}}>
+                            {this.state.displayedUser.items.map(item => {
+                              return <li key={item}>{item}</li>
+                            })}
+                          </ul>
+                        </div>
+                      </> : 
+                      this.state.isLoading ? <div style={{width: "20px", height: "20px"}} className="spinner"></div> :
+                      this.state.userNotFound ? <>
+                        {route.match.params.addressOrENS} could not be found :/
+                      </> : <></>
+                    }
+                  </div>
                 </div>
-              </div>
-            }}></Route>
-          </Switch>
-      </div>
+              }}></Route>
+            </Switch>
+        </div>
+        <footer style={{textAlign: "center"}}>
+          <div>Created by <a href="https://twitter.com/stephancill">@stephancill</a></div>
+          <div>Inspired by <a href="https://lootproject.com">lootproject.com</a></div>
+          <div>Source on <a href="https://github.com/stephancill/synthetic-loot-viewer">GitHub</a></div>
+          <div>SyntheticLoot 0x869ad3dfb0f9acb9094ba85228008981be6dbdde</div>
+        </footer>
+      </>
     )
   }
 
