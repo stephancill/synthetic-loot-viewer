@@ -5,6 +5,7 @@ import { ethers } from "ethers"
 import deploymentMap from "../deployments/map.json"
 import SyntheticLootArtifact from "../artifacts/contracts/SyntheticLoot/SyntheticLoot.json"
 
+import {getImageForLoot, itemsFromSvg} from "./../loot-util"
 
 import { Nav } from "./Nav"
 import HeaderUser from "./HeaderUser"
@@ -83,6 +84,7 @@ class Dapp extends React.Component {
                       />
 
                       <div className="card"  style={{backgroundColor: "white", marginTop: "15px"}}>
+                        <img alt="character" style={{borderRadius: "5px", width: "100%"}} src={this.state.displayedUser.character}/>
                         <img alt="loot" style={{borderRadius: "5px"}} src={this.state.displayedUser.lootImage}/>
                       </div>
                     </> : 
@@ -284,12 +286,19 @@ class Dapp extends React.Component {
   async _userFromAddress(address) {
     const tokenURIB64 = await this.state.syntheticLoot.tokenURI(address)
     const tokenURI = JSON.parse(Buffer.from(tokenURIB64.split(",")[1], 'base64').toString("utf8"))
-    const svg = tokenURI.image
+    const b64svg = tokenURI.image
+    const svg = Buffer.from(b64svg.split(",")[1], 'base64').toString("utf8")
     const ens = await this._provider.lookupAddress(address);
+
+    const items = itemsFromSvg(svg)
+    console.log(items)
+    const img = await getImageForLoot(items)
+    console.log(img)
 
     return {
       address: address.toLowerCase(),
-      lootImage: svg,
+      lootImage: b64svg,
+      character: img,
       ens
     }
   }

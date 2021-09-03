@@ -11,6 +11,8 @@
     "bootstrap": "^4.4.1",
     "eth-ens-namehash": "^2.0.8",
     "ethers": "^5.4.6",
+    "loot-rarity": "^4.2.0",
+    "merge-images": "^2.0.0",
     "qr-image": "^3.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

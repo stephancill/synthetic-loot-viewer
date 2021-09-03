@@ -1,7 +1,9 @@
-# Client
+# synthetic loot viewer
 
-This directory has a sample Dapp to interact with your contracts, built using
-React.
+View synthetic loot by wallet address or ENS
+
+## References
+* Images - https://github.com/jordanmessina/loot-layers
 
 ## Running the Dapp
 
